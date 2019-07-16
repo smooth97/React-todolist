@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoListTemplate from './components/TodoListTemplate';
+import Form from './components/Form';
+import TodoItemList from './components/TodoItemList';
+
 
 function App() {
+
+  let id = 3;
+
+  const state = {
+    input: '',
+    todos: [
+      {id: 0, text: 'react', checked: false},
+      {id: 1, text: 'react', checked: true},
+      {id: 2, text: 'react', checked: false},
+    ]
+  };
+
+  const handleChange = (e) => {
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <TodoListTemplate form={<Form/>}>
+        <TodoItemList/>
+      </TodoListTemplate>
+    </>
+  )
 }
 
 export default App;
