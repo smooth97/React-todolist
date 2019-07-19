@@ -1,15 +1,29 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
+
+// 함수 컴포넌트
 const TodoItemList = ({todos, onToggle, onRemove}) => {
-    
-    return (
+  
+      const todoList = todos.map(
+        ({id, text, checked}) => (
+          <TodoItem
+            id={id}
+            text={text}
+            checked={checked}
+            onToggle={onToggle}
+            onRemove={onRemove}
+            key={id}
+          />
+        )
+      );
+  
+      return (
         <div>
-            <TodoItem text="Hello"/>
-            <TodoItem text="React"/>
-            <TodoItem text="Component"/>
+            {todoList}
         </div>
-    );
-};
+      );
+    
+  }
 
 export default TodoItemList;
